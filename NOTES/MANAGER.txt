@@ -1,0 +1,100 @@
+MANAGER 
+
+LOG IN = PIN
+
+[MAIN MENU]
+
+(1.) VIEW SALES REPORT ( CANT EDIT ONLY VIEW) (DAILY, WEEKLY AND MONTHLY SALES ONLY)
+--> DAILY/ MONTHLY
+--> VIEW TOP SELLING ITEMS & LOW SELLING ITEMS
+--> VISUAL GRAPH OF THE SALES (OPTIONAL)
+
+(2.) TRACK CASHIER 
+* CASHIER LOG IN
+--> CASHIER TOTAL SALE OF THE SHIFT (TOTAL CASH ETC.)
+--> CHECK LOG IN/ LOG OUT TIME
+
+(3.) Order & Transaction Monitoring
+--> Track canceled/voided orders
+--> Detect suspicious or missing sales
+--> Compare POS cash vs actual register cash
+
+
+(4.) INGREDIENTS INVENTORY
+*** REQUEST STOCK TO ADMIN
+
+(SAVED BY ID/ CATEGORY / NAME / QUANTITY / UNIT / LOW STOCK (MINIMUM STOCK TO SEND WARNING) / LAST UPDATE/ EXP DATE) 
+
+SAVE AS -->
+
+* MEAT & POULTRY
+--> Whole chicken
+--> Chicken leg
+--> Chicken thigh
+--> Chicken breast
+--> Chicken wings
+--> Pork belly (LIEMPO)
+--> Pork chop
+--> Pork slices (for BBQ)
+--> Whole pig
+--> Half pig
+
+* VEGETABLES & HERBS
+--> Garlic
+--> Onion
+--> Ginger
+--> Corn kernels
+--> Annatto powder
+
+* RICE & GRAINS
+--> Uncooked rice
+
+* SEASONINGS & SAUCES
+--> Salt
+--> Black pepper
+--> Soy sauce
+--> Vinegar
+--> Banana ketchup
+--> Sugar (brown & white)
+--> Flour
+--> Butter
+--> Cooking oil
+
+* FRUITS & CITRUS
+--> Calamansi or Lemon
+
+* DRINKS
+--> Coke
+--> Iced tea powder
+--> Ice
+
+(5.) CUSTOMER COMPLAINTS MONITORING
+--> Log and Track Complaints from customers
+--> Categorize complaints (e.g., Food Quality, Service, Pricing, Incorrect Orders)
+--> Forward Critical Complaints to Admin
+--> Monitor Complaint Resolution Status
+--> Identify Recurring Issues & Report to Admin
+
+(6.) REFUND APPROVAL
+--> APPROVE SMALL REFUNDS
+--> REQUEST TO ADMIN FOR HIGH AMOUNT REFUNDS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

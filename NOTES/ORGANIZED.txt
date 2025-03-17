@@ -1,0 +1,20 @@
+[main.py] --> starter
+
+[cashier.py] --> cashier functionalities
+
+[manager.py] --> manager functionalities
+
+[admin.py] --> admin functionalities
+
+[database.py] --> helper for storing data in [data]
+
+[pos_ui] -- [folder] --> tkinter design
+	[cashier_ui.py]
+	[admin_ui.py]
+	[manager_ui.py]
+
+[data] -- [folder] --> json database
+	[employees.json]
+	[sales.json]
+	[inventory.json]
+	[settings.json]
