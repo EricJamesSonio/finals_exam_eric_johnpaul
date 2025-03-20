@@ -37,3 +37,15 @@ ADMIN LOG IN VIA USERNAME AND PASSWORD
 (6.) APPROVE REFUNDS
 --> HIGH AMOUNTS
 --> REQUESTED BY THE MANAGER SINCE MANAGER CAN ONLY APPROVE SMALL REFUNDS
+
+(7.) CUSTOMER COMPLAINTS MONITORING
+--> Log and track customer complaints
+--> Categorize complaints (Food Quality, Service, Pricing, Incorrect Orders, etc.)
+--> Forward Critical Complaints for immediate action
+--> Monitor Complaint Resolution Status
+--> Identify Recurring Issues & Generate Reports
+
+(8.) TRACK CASHIER PERFORMANCE
+--> Cashier Log In/Out Monitoring
+--> View Cashier's Total Sales for the Shift
+--> Ensure Shift Reports Match POS Transactions
