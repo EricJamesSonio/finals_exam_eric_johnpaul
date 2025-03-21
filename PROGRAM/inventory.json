@@ -1,0 +1,15 @@
+[
+    {
+        "code": "P123",
+        "name": "Pepsi",
+        "description": "500ml bottle",
+        "quantity": 50,
+        "purchase_price": 15.0,
+        "sales_price": 25.0,
+        "discount_rate": 0.1,
+        "category": "Beverages",
+        "supplier": "Coca-Cola Supplier",
+        "manufacturing_date": "2025-03-01",
+        "expiration_date": "2026-03-01"
+    }
+]

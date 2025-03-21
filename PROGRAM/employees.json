@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "name": "John Updated",
+        "address": "123 Street, City",
+        "contact_no": "09987654321",
+        "dob": "1995-05-15",
+        "user_type": "Cashier",
+        "login_id": "johndoe123",
+        "password": "securepass"
+    },
+    {
+        "id": 2,
+        "name": "John Doe",
+        "address": "123 Street",
+        "contact_no": "09123456789",
+        "date_of_birth": "1995-07-20",
+        "user_type": "Cashier",
+        "login_id": "johndoe",
+        "password": "password123"
+    },
+    {
+        "id": 3,
+        "name": "John Doe",
+        "address": "123 Street",
+        "contact_no": "09123456789",
+        "date_of_birth": "1995-07-20",
+        "user_type": "Cashier",
+        "login_id": "johndoe",
+        "password": "password123"
+    },
+    {
+        "id": 4,
+        "name": "John Doe",
+        "address": "123 Street",
+        "contact_no": "09123456789",
+        "date_of_birth": "1995-07-20",
+        "user_type": "Cashier",
+        "login_id": "johndoe",
+        "password": "password123"
+    },
+    {
+        "id": 5,
+        "name": "John Doe",
+        "address": "123 Street",
+        "contact_no": "09123456789",
+        "date_of_birth": "1995-07-20",
+        "user_type": "Cashier",
+        "login_id": "johndoe",
+        "password": "password123"
+    },
+    {
+        "id": 6,
+        "name": "John Doe",
+        "address": "123 Street",
+        "contact_no": "09123456789",
+        "date_of_birth": "1995-07-20",
+        "user_type": "Cashier",
+        "login_id": "johndoe",
+        "password": "password123"
+    },
+    {
+        "id": 7,
+        "name": "John Doe",
+        "address": "123 Street",
+        "contact_no": "09123456789",
+        "date_of_birth": "1995-07-20",
+        "user_type": "Cashier",
+        "login_id": "johndoe",
+        "password": "password123"
+    },
+    {
+        "id": 8,
+        "name": "John Doe",
+        "address": "123 Street",
+        "contact_no": "09123456789",
+        "date_of_birth": "1995-07-20",
+        "user_type": "Cashier",
+        "login_id": "johndoe",
+        "password": "password123"
+    },
+    {
+        "id": 9,
+        "name": "John Doe",
+        "address": "123 Street",
+        "contact_no": "09123456789",
+        "date_of_birth": "1995-07-20",
+        "user_type": "Cashier",
+        "login_id": "johndoe",
+        "password": "password123"
+    },
+    {
+        "id": 10,
+        "name": "John Doe",
+        "address": "123 Street",
+        "contact_no": "09123456789",
+        "date_of_birth": "1995-07-20",
+        "user_type": "Cashier",
+        "login_id": "johndoe",
+        "password": "password123"
+    },
+    {
+        "id": 11,
+        "name": "John Doe",
+        "address": "123 Street",
+        "contact_no": "09123456789",
+        "date_of_birth": "1995-07-20",
+        "user_type": "Cashier",
+        "login_id": "johndoe",
+        "password": "password123"
+    },
+    {
+        "id": 12,
+        "name": "John Doe",
+        "address": "123 Street",
+        "contact_no": "09123456789",
+        "date_of_birth": "1995-07-20",
+        "user_type": "Cashier",
+        "login_id": "johndoe",
+        "password": "password123"
+    }
+]

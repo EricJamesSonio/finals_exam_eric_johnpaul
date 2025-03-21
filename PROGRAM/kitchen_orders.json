@@ -1,0 +1,30 @@
+[
+    {
+        "order_no": 101,
+        "table_no": 5,
+        "order_type": "Dine-In",
+        "food_items": [
+            "Grilled Chicken - R1 Regular",
+            "Garlic Rice"
+        ],
+        "quantity": 2,
+        "special_notes": "No onions",
+        "order_time": "2025-03-21 11:07:05",
+        "order_status": "In Progress",
+        "cashier_name": "John Doe"
+    },
+    {
+        "order_no": 101,
+        "table_no": 5,
+        "order_type": "Dine-In",
+        "food_items": [
+            "Grilled Chicken - R1 Regular",
+            "Garlic Rice"
+        ],
+        "quantity": 2,
+        "special_notes": "No onions",
+        "order_time": "2025-03-21 13:18:32",
+        "order_status": "Pending",
+        "cashier_name": "John Doe"
+    }
+]

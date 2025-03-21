@@ -1,0 +1,62 @@
+[
+    {
+        "table_no": 1,
+        "seating_capacity": 4,
+        "status": "Vacant",
+        "current_order_no": null
+    },
+    {
+        "table_no": 2,
+        "seating_capacity": 2,
+        "status": "Vacant",
+        "current_order_no": null
+    },
+    {
+        "table_no": 3,
+        "seating_capacity": 6,
+        "status": "Occupied",
+        "current_order_no": 103
+    },
+    {
+        "table_no": 4,
+        "seating_capacity": 4,
+        "status": "Occupied",
+        "current_order_no": 101
+    },
+    {
+        "table_no": 5,
+        "seating_capacity": 2,
+        "status": "Vacant",
+        "current_order_no": null
+    },
+    {
+        "table_no": 6,
+        "seating_capacity": 8,
+        "status": "Occupied",
+        "current_order_no": 103
+    },
+    {
+        "table_no": 7,
+        "seating_capacity": 4,
+        "status": "Vacant",
+        "current_order_no": null
+    },
+    {
+        "table_no": 8,
+        "seating_capacity": 2,
+        "status": "Vacant",
+        "current_order_no": null
+    },
+    {
+        "table_no": 9,
+        "seating_capacity": 6,
+        "status": "Occupied",
+        "current_order_no": 103
+    },
+    {
+        "table_no": 10,
+        "seating_capacity": 4,
+        "status": "Vacant",
+        "current_order_no": null
+    }
+]
