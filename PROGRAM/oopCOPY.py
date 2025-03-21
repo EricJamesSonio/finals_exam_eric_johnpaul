@@ -29,7 +29,7 @@ class SalesRegister:
     RECEIPTS_FILE = "receipts.json"
 
     def __init__(self, order_processor):
-        self.order_processor = order_processor  # ✅ Use OrderProcessor for payment
+        self.order_processor = order_processor 
         self.receipts = self.load_receipts()
 
     def load_receipts(self):
@@ -46,18 +46,16 @@ class SalesRegister:
         try:
             with open("cart.json", "r") as file:
                 cart_data = json.load(file)
-                return cart_data.get("cart", [])  # ✅ Extract only the list
+                return cart_data.get("cart", []) 
         except (FileNotFoundError, json.JSONDecodeError):
             raise ValueError("🚨 Error: cart.json is missing or corrupted!")
 
     def process_order(self, cart, paid_amount, payment_type, discount_rate=0.0, tax_rate=0.0):
         print("\nDEBUG: Received Cart for Order Processing:", cart)
 
-        # ✅ Remove incorrect dictionary access
         if isinstance(cart, dict) and "cart" in cart:
-            cart = cart["cart"]  # Only do this if `cart` is a dictionary
+            cart = cart["cart"]  
 
-        # ✅ Ensure cart is a list
         if not isinstance(cart, list):
             raise ValueError("🚨 Error: Cart data must be a list of items.")
 
@@ -83,15 +81,13 @@ class SalesRegister:
             **payment_result
         }
 
-        # ✅ Load and save sales data correctly
         sales_data = FileManager.load_json(self.RECEIPTS_FILE)
         if not isinstance(sales_data, list):
-            sales_data = []  # Ensure it's a list
+            sales_data = []  
 
         sales_data.append(sale_entry)
         FileManager.save_json(self.RECEIPTS_FILE, sales_data)
 
-        # ✅ Make sure inventory updates correctly
         self.order_processor.inventory.update_inventory(cart)  
         return sale_entry
     
@@ -104,7 +100,7 @@ class Receipt:
         tax = (subtotal - discount) * tax_rate
         total_payable = subtotal - discount + tax
         change = paid_amount - total_payable
-        receipt_no = f"R{random.randint(10000, 99999)}"  # Random receipt number
+        receipt_no = f"R{random.randint(10000, 99999)}" 
 
         return {
             "receipt_no": receipt_no,
@@ -134,7 +130,7 @@ class FileManager: # SINGLETON
             return []
         except json.JSONDecodeError:
             print(f"🚨 Error: {file_path} is corrupted. Resetting file.")
-            FileManager.save_json(file_path, [])  # Reset file
+            FileManager.save_json(file_path, [])  
             return []
 
     @staticmethod
@@ -210,7 +206,7 @@ class SalesReport:
             'total_profit': self.calculate_total_profit(report),
             'sales_data': report
         }
-        return self.report_strategy.generate(summary)  # 🔹 Uses the strategy for formatting
+        return self.report_strategy.generate(summary) 
 
     def find_receipt(self, receipt_no):
         receipts = FileManager.load_json(self.receipts_file)
@@ -241,7 +237,7 @@ class InventoryRepository:
             with open(InventoryRepository.INVENTORY_FILE, "r") as file:
                 return json.load(file)
         except (FileNotFoundError, json.JSONDecodeError):
-            return []  # Return empty if file doesn't exist or has an error
+            return [] 
 
     @staticmethod
     def save_inventory(inventory):
@@ -263,7 +259,7 @@ class InventoryRepository:
 
 class Inventory:
     
-    _instance = None  # Singleton instance
+    _instance = None  
 
     def __new__(cls):
         if cls._instance is None:
@@ -281,14 +277,14 @@ class Inventory:
         return f"Item '{item_data['name']}' added successfully!"
 
     def get_item_list(self):
-        self.items = InventoryRepository.load_inventory()  # Refresh before returning
+        self.items = InventoryRepository.load_inventory()  
         return self.items
 
     def get_item(self, item_code):
         return next((item for item in self.items if item["code"] == item_code), None)
 
     def update_inventory(self, cart_item):
-        print("DEBUG CART ITEM:", cart_item)  # Check input format
+        print("DEBUG CART ITEM:", cart_item)  
 
         if not isinstance(cart_item, dict):
             raise TypeError(f"Expected a dictionary, got {type(cart_item)} instead.")
@@ -296,29 +292,26 @@ class Inventory:
         if "code" not in cart_item:
             raise KeyError("Missing 'code' in cart_item dictionary")
 
-        # 🛠 Load items from cart.json (not inventory.json)
         try:
             with open("cart.json", "r") as file:
-                cart_items = json.load(file)  # Load cart data
+                cart_items = json.load(file) 
         except (FileNotFoundError, json.JSONDecodeError):
-            cart_items = []  # Default empty cart
+            cart_items = [] 
 
-        print("DEBUG CART DATA BEFORE UPDATE:", cart_items)  # Print current cart
+        print("DEBUG CART DATA BEFORE UPDATE:", cart_items)  
 
-        # ✅ Now, update the quantity in cart.json
         for item in cart_items:
             if "code" not in item:
                 raise KeyError(f"Cart item is missing 'code': {item}")
 
             if item["code"] == cart_item["code"]:
                 item["quantity"] -= cart_item["quantity"]
-                break  # Stop loop once item is found
+                break 
 
-        # Save updated cart back to cart.json
         with open("cart.json", "w") as file:
             json.dump(cart_items, file, indent=4)
 
-        print("UPDATED CART DATA:", cart_items)  # Debugging print
+        print("UPDATED CART DATA:", cart_items)  
     
     def add_category(self, category_name):
         if category_name in self.categories:
@@ -347,26 +340,25 @@ class PaymentStrategy(ABC): # STRATEGY PATTERN
 
 class CashPayment(PaymentStrategy):
     def process_payment(self, total, paid_amount):
-        # Convert to Decimal and round properly
         total = Decimal(total).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
         paid_amount = Decimal(paid_amount).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
         change = (paid_amount - total).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
 
-        print(f"DEBUG: total={total}, paid_amount={paid_amount}, raw_change={change}")  # 🔥 Debug output
+        print(f"DEBUG: total={total}, paid_amount={paid_amount}, raw_change={change}")
 
         if paid_amount < total:
             remaining_due = (total - paid_amount).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
-            print(f"DEBUG: remaining_due={remaining_due}")  # 🔥 Debug output
+            print(f"DEBUG: remaining_due={remaining_due}") 
             return {
                 "error": "Insufficient payment. Please pay the full amount.",
-                "total_due": str(total),  # Keep as string to avoid float precision issues
+                "total_due": str(total), 
                 "paid_amount": str(paid_amount),
-                "remaining_due": str(remaining_due)  # ✅ No more float precision errors
+                "remaining_due": str(remaining_due) 
             }
 
         return {
             "paid_amount": str(paid_amount),
-            "change": str(change),  # ✅ Ensure change is properly rounded
+            "change": str(change),
             "due": "0"
         }
 
@@ -405,7 +397,7 @@ class OrderProcessor:
         total_payable = Decimal(subtotal - discount + tax).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
         total_item_types = len(cart)
 
-        print(f"DEBUG: subtotal={subtotal}, discount={discount}, tax={tax}, total_payable={total_payable}")  # 🔥 Debug
+        print(f"DEBUG: subtotal={subtotal}, discount={discount}, tax={tax}, total_payable={total_payable}") 
 
         return {
             "subtotal": float(subtotal),
@@ -423,9 +415,8 @@ class OrderProcessor:
         payment_strategy = self.get_payment_strategy(payment_type)
         payment_result = payment_strategy.process_payment(totals["total_payable"], paid_amount)
 
-        # ❌ Don't deduct ingredients if payment fails
         if "error" in payment_result:
-            return payment_result  # Stop processing
+            return payment_result 
 
         receipt_no = f"R{datetime.now().strftime('%Y%m%d%H%M%S')}"
         date = datetime.now().strftime('%Y-%m-%d')
@@ -445,7 +436,6 @@ class OrderProcessor:
         sales_data.append(sale_entry)
         FileManager.save_json(self.SALES_REPORT_FILE, sales_data)
 
-        # ✅ Deduct ingredients only after successful payment
         for item in cart:
             self.inventory.update_inventory(item)
             IngredientManager().deduct_ingredients(item["name"], item["quantity"])
@@ -581,7 +571,6 @@ class IngredientManager: # SINGLETON & REPOSITORY PATTERN
             if stock["quantity"] < required_qty:
                 return f"Warning: Not enough stock for '{ingredient_name}' (Needed: {required_qty}, Available: {stock['quantity']})."
 
-            # Deduct ingredient
             stock["quantity"] -= required_qty
             stock["last_update"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
@@ -631,12 +620,10 @@ class TableManagement:
         return [table.to_dict() for table in self.tables if table.status == "Vacant"]
 
     def assign_table(self, order_no, seating_needed):
-    # Ensure order isn't already assigned to a table
         for table in self.tables:
             if table.current_order_no == order_no:
                 return f"❌ Order {order_no} is already assigned to Table {table.table_no}."
 
-        # Assign table if available
         for table in self.tables:
             if table.status == "Vacant" and table.seating_capacity >= seating_needed:
                 table.status = "Occupied"
