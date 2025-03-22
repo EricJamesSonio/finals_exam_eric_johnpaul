@@ -8,7 +8,7 @@ from decimal import Decimal, ROUND_HALF_UP
 # POS SYSTEM CLASS
 # ==========================
 
-class POSSystem:
+class POSSystem: # FACADE 
     def __init__(self):
         self.sales_report = SalesReport()
         self.inventory = Inventory()
@@ -25,7 +25,7 @@ class POSSystem:
 # SALES REGISTER CLASS
 # ==========================
 
-class SalesRegister:
+class SalesRegister: # STRATEGY PATTERN
     RECEIPTS_FILE = "receipts.json"
 
     def __init__(self, order_processor):
@@ -90,7 +90,7 @@ class SalesRegister:
         self.order_processor.inventory.update_inventory(cart)  
         return sale_entry
     
-class Receipt:
+class Receipt: # FACTORY PATTERN
     @staticmethod
     def create(cart, paid_amount, payment_type, discount_rate=0.0, tax_rate=0.0):
         
@@ -145,7 +145,7 @@ class FileManager: # SINGLETON
 # SALES REPORT CLASS
 # ==========================
 
-class ReportStrategy(ABC):
+class ReportStrategy(ABC): # STRATEGY PATTERN
     
     @abstractmethod
     def generate(self, sales_data):
@@ -226,7 +226,7 @@ class SalesReport:
 # INVENTORY CLASS
 # ==========================
 
-class InventoryRepository:
+class InventoryRepository: # REPOSITORY PATTERN
     INVENTORY_FILE = "inventory.json"
     CATEGORIES_FILE = "categories.json"
 
@@ -256,7 +256,7 @@ class InventoryRepository:
         with open(InventoryRepository.CATEGORIES_FILE, "w") as file:
             json.dump(categories, file, indent=4)
 
-class Inventory:
+class Inventory: # SINGLETON
     
     _instance = None  
 
@@ -580,7 +580,7 @@ class IngredientManager: # SINGLETON & REPOSITORY PATTERN
 # TABLE MANAGER CLASS
 # ==========================
 
-class Table:
+class Table: # FACTORY METHOD PATTERN
     def __init__(self, table_no, seating_capacity, status="Vacant", current_order_no=None):
         self.table_no = table_no
         self.seating_capacity = seating_capacity
@@ -605,7 +605,7 @@ class Table:
         )
 
 
-class TableManagement:
+class TableManagement: # REPOSITORY PATTERN
     
     TABLES_FILE = "tables.json"
 
