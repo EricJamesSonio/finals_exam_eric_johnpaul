@@ -42,7 +42,6 @@ class SalesRegister:
             json.dump(self.receipts, file, indent=4)
 
     def load_cart(self):
-        """Load the cart from cart.json"""
         try:
             with open("cart.json", "r") as file:
                 cart_data = json.load(file)
