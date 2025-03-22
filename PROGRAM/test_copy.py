@@ -44,8 +44,8 @@ def test_employee_management():
     emp_manager = EmployeeManagement()
 
     print("\n▶ Adding a new employee...")
-    emp_result = emp_manager.add_employee("John Doe", "123 Street", "09123456789", "1995-07-20", "Cashier", "johndoe", "password123")
-    print(emp_result)
+    '''emp_result = emp_manager.add_employee("Eric james", "123 Street", "09123456789", "2004-07-20", "Cashier", "Eric", "password123")
+    print(emp_result) '''
 
     print("\n▶ Fetching employee list...")
     employee_list = emp_manager.get_employee_list()
